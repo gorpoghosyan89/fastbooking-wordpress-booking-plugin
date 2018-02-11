@@ -1,0 +1,73 @@
+{
+    "name": "awethemes/awebooking",
+    "description": "Online hotel booking plugin for WordPress",
+    "type": "wordpress-plugin",
+    "license": "GPLv2 or later",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "awethemes",
+            "email": "support@awethemes.com"
+        },
+        {
+            "name": "anhskohbo",
+            "email": "anhskohbo@gmail.com"
+        }
+    ],
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/WebDevStudios/Taxonomy_Single_Term.git" }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "a5hleyrich/wp-background-processing": "^1.0",
+        "awethemes/container": "5.4.*",
+        "awethemes/skeleton": "^1.2",
+        "awethemes/wp-http": "^1.0",
+        "awethemes/wp-object": "dev-master",
+        "awethemes/wp-session": "dev-master",
+        "erusev/parsedown": "^1.6",
+        "league/period": "^3.3",
+        "monolog/monolog": "^1.23",
+        "nesbot/carbon": "^1.22",
+        "pelago/emogrifier": "^1.2",
+        "roomify/bat": "dev-master",
+        "symfony/http-foundation": "3.3.*",
+        "tightenco/collect": "5.4.*",
+        "webdevstudios/taxonomy_single_term": "dev-master"
+    },
+    "require-dev": {
+        "10up/wp_mock": "^0.2.0",
+        "symfony/debug": "^3.3",
+        "symfony/var-dumper": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "AweBooking\\": "inc/"
+        },
+        "files": [
+            "vendor/webdevstudios/taxonomy_single_term/class.taxonomy-single-term.php"
+        ],
+        "classmap": [
+            "bin/composer-cleaner.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "AweBooking_Composer_Cleaner::clean"
+        ],
+        "post-update-cmd": [
+            "AweBooking_Composer_Cleaner::clean"
+        ],
+        "clean": [
+            "AweBooking_Composer_Cleaner::clean"
+        ],
+        "install-unit-tests": [
+            "bash bin/install-wp-tests.sh wptest_awebooking root 'secret' localhost latest"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    }
+}

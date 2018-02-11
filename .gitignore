@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+wp-cli.local.yml
+node_modules/
+vendor/
+awethemes/
+*.zip
+*.tar.gz
+composer.lock
